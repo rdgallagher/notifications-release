@@ -60,12 +60,19 @@ function push_app() {
   popd
 }
 
+function create_security_groups() {
+  cf create-security-group AWS_BOSH_LITE_SECURITY_GROUP security_groups.json
+  cf bind-staging-security-group AWS_BOSH_LITE_SECURITY_GROUP
+  cf bind-running-security-group AWS_BOSH_LITE_SECURITY_GROUP
+}
+
 function boot_app() {
   cf restart $APP_NAME
 }
 
 cf -v
 authenticate_and_target
+create_security_groups
 create_quota
 push_app
 add_env_vars
