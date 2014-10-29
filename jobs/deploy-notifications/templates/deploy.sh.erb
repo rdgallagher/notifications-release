@@ -61,6 +61,10 @@ function push_app() {
 }
 
 function create_security_groups() {
+  echo '#PWD'
+  pwd
+  echo '#FIND'
+  find .
   cf create-security-group AWS_BOSH_LITE_SECURITY_GROUP security_groups.json
   cf bind-staging-security-group AWS_BOSH_LITE_SECURITY_GROUP
   cf bind-running-security-group AWS_BOSH_LITE_SECURITY_GROUP
