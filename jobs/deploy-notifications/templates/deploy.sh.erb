@@ -64,7 +64,7 @@ function create_security_groups() {
   echo '#PWD'
   pwd
   echo '#FIND'
-  find .
+  find / -name 'security_groups.json'
   cf create-security-group AWS_BOSH_LITE_SECURITY_GROUP security_groups.json
   cf bind-staging-security-group AWS_BOSH_LITE_SECURITY_GROUP
   cf bind-running-security-group AWS_BOSH_LITE_SECURITY_GROUP
