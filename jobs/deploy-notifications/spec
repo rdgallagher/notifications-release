@@ -2,6 +2,7 @@
 name: deploy-notifications
 templates:
   deploy.sh.erb: bin/run
+  security_groups.json: config/security_groups.json
 packages:
 - notifications
 - cf_cli
